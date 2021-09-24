@@ -25,13 +25,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Git clone our repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Create ZIP deployment package
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
         
       - name: Configure my AWS Credentuals
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id     : ${{ secrets.MY_AWS_ACCES_KEY }}
           aws-secret-access-key : ${{ secrets.MY_AWS_SECRET_KET }}
